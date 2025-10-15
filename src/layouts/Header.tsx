@@ -107,7 +107,7 @@ export function Header() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  className={`px-4 py-2 rounded-lg text-md font-medium transition-all duration-300 ${
                     isActive
                       ? isHome
                         ? "bg-transparent text-foreground"

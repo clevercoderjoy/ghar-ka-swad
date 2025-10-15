@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail } from "lucide-react";
+import { Phone, CookingPot } from "lucide-react";
 
 export function Hero() {
   return (
@@ -90,7 +90,7 @@ export function Hero() {
               className="rounded-full px-8 py-6 text-lg font-semibold backdrop-blur-sm border-foreground transition-all duration-300 hover:scale-105 hover:bg-primary/10"
               onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Mail className="mr-2 h-5 w-5" />
+              <CookingPot className="mr-2 h-5 w-5" />
               View Packages
             </Button>
           </motion.div>
