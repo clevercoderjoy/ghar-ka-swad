@@ -126,4 +126,23 @@ All colors MUST be HSL.
   .glass-reflection {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
   }
+
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-bounce {
+    animation: bounce 0.6s ease-in-out;
+  }
 }
