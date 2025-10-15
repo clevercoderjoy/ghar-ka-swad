@@ -60,7 +60,7 @@ export function Header() {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-lg font-bold leading-tight">घर का स्वाद</h1>
-              <p className="text-xs text-muted-foreground">Home Cooked Meals</p>
+              <p className="text-xs text-foreground/85">Home Cooked Meals</p>
             </div>
           </motion.div>
 

@@ -1870,6 +1870,16 @@ video {
 .text-transparent {
   color: transparent;
 }
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.text-foreground\/70 {
+  color: hsl(var(--foreground) / 0.7);
+}
+.text-foreground\/85 {
+  color: hsl(var(--foreground) / 0.85);
+}
 .underline-offset-4 {
   text-underline-offset: 4px;
 }
