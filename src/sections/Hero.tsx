@@ -90,10 +90,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-base md:text-lg text-foreground max-w-2xl mx-auto leading-relaxed font-medium space-y-1"
+            className="text-base text-center md:text-lg text-foreground max-w-2xl mx-auto leading-relaxed font-medium space-y-1"
           >
             <p className="text-md tracking-wider">The authentic home-cooked bihari cuisine.</p>
-            <p className="text-md">हर खुराक में माँ के हाथ का प्यार, आपके <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-lg text-primary/90 font-semibold">घर के स्वाद</span> में |</p>
+            <p className="text-base tacking-tighter">हर खुराक में माँ के हाथ का प्यार, आपके <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-lg text-primary/90 font-semibold">घर के स्वाद</span> में |</p>
           </motion.div>
 
           {/* CTA Buttons */}
@@ -140,7 +140,7 @@ export function Hero() {
             </div>
             <div className="space-y-1 sm:space-y-2 text-center">
               <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary">2+</div>
-              <div className="text-xs sm:text-sm text-foreground/90">Years Experience</div>
+              <div className="text-xs sm:text-sm text-foreground/90">Years of Service</div>
             </div>
           </motion.div>
         </motion.div>

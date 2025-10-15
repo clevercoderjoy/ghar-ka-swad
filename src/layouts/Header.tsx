@@ -73,11 +73,25 @@ export function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-gradient-to-b from-white/50 to-white/30 dark:from-black/40 dark:to-black/20 backdrop-blur-2xl border-b border-white/20 dark:border-black/20 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-2px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.4)] dark:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-2px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.1)]"
+        ? ""
         : "bg-transparent"
         }`}
     >
-      <div className="container px-4">
+      {/* Liquid Glass Background - Only when scrolled */}
+      {scrolled && (
+        <>
+          {/* Main glass background */}
+          <div className="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border-b border-white/20 dark:border-white/10 shadow-2xl" />
+          
+          {/* Glass reflection effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/10 dark:via-transparent dark:to-transparent" />
+          
+          {/* Ambient light effects */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 blur-xl opacity-30 animate-pulse" />
+        </>
+      )}
+      
+      <div className="container px-4 relative z-10">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo - Left */}
           <motion.div
