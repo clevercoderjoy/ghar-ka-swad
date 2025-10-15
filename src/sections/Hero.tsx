@@ -6,14 +6,14 @@ import { Phone, Mail } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(/assets/hero-food.jpg)` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/85" />
       </div>
 
       {/* Content */}
@@ -31,8 +31,8 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm"
           >
-            <span className="text-sm font-medium text-primary">
-              Serving Fresh & Homely Meals Daily
+            <span className="text-md font-medium text-primary">
+              Serving Fresh Home Made Food Daily
             </span>
           </motion.div>
 
@@ -53,21 +53,21 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl md:text-2xl lg:text-3xl font-medium text-muted-foreground"
+            className="text-xl md:text-2xl lg:text-3xl font-medium text-foreground"
           >
             घर का खाना खाये, घर का स्वाद में खाये
           </motion.p>
 
           {/* Description */}
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            className="text-base md:text-lg text-foreground max-w-2xl mx-auto leading-relaxed font-medium"
           >
             Experience authentic home-cooked meals delivered fresh to your doorstep in Darbhanga. 
             Prepared with love by our mother, every meal brings the warmth and taste of home.
-          </motion.p>
+          </motion.p> */}
 
           {/* CTA Buttons */}
           <motion.div
@@ -76,18 +76,18 @@ export function Hero() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
           >
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="group relative overflow-hidden rounded-full px-8 py-6 text-lg font-semibold shadow-glow transition-all duration-300 hover:scale-105 hover:shadow-xl"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Phone className="mr-2 h-5 w-5 transition-transform group-hover:rotate-12" />
               Order Now
             </Button>
-            <Button 
+            <Button
               variant="outline"
               size="lg"
-              className="rounded-full px-8 py-6 text-lg font-semibold backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-primary/10"
+              className="rounded-full px-8 py-6 text-lg font-semibold backdrop-blur-sm border-foreground transition-all duration-300 hover:scale-105 hover:bg-primary/10"
               onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Mail className="mr-2 h-5 w-5" />

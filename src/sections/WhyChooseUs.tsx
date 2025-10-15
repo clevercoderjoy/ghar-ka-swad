@@ -21,7 +21,7 @@ export function WhyChooseUs() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden bg-secondary/30">
+    <section id="why-us" className="py-20 md:py-32 relative overflow-hidden bg-secondary/30">
       <div className="container px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}

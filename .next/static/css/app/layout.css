@@ -871,6 +871,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 .block {
   display: block;
 }
@@ -1283,6 +1286,9 @@ video {
 .gap-8 {
   gap: 2rem;
 }
+.gap-2\.5 {
+  gap: 0.625rem;
+}
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
@@ -1446,6 +1452,13 @@ video {
 .border-transparent {
   border-color: transparent;
 }
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+.border-foreground {
+  border-color: hsl(var(--foreground));
+}
 .border-l-transparent {
   border-left-color: transparent;
 }
@@ -1558,6 +1571,46 @@ video {
   --tw-gradient-to: hsl(var(--primary) / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-background\/60 {
+  --tw-gradient-from: hsl(var(--background) / 0.6) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/20 {
+  --tw-gradient-from: hsl(var(--background) / 0.2) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/80 {
+  --tw-gradient-from: hsl(var(--background) / 0.8) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/70 {
+  --tw-gradient-from: hsl(var(--background) / 0.7) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/50 {
+  --tw-gradient-from: hsl(var(--background) / 0.5) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/85 {
+  --tw-gradient-from: hsl(var(--background) / 0.85) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/65 {
+  --tw-gradient-from: hsl(var(--background) / 0.65) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/90 {
+  --tw-gradient-from: hsl(var(--background) / 0.9) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .via-accent {
   --tw-gradient-to: hsl(var(--accent) / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--accent)) var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1565,6 +1618,42 @@ video {
 .via-background\/85 {
   --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.85) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-background\/40 {
+  --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.4) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-background\/90 {
+  --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.9) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-background\/50 {
+  --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.5) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-background\/70 {
+  --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.7) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-background\/60 {
+  --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.6) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-background\/80 {
+  --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.8) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-background\/75 {
+  --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.75) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-background\/30 {
+  --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.3) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-background\/45 {
+  --tw-gradient-to: hsl(var(--background) / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--background) / 0.45) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 .to-accent {
   --tw-gradient-to: hsl(var(--accent)) var(--tw-gradient-to-position);
@@ -1583,6 +1672,24 @@ video {
 }
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+.to-background\/70 {
+  --tw-gradient-to: hsl(var(--background) / 0.7) var(--tw-gradient-to-position);
+}
+.to-background\/30 {
+  --tw-gradient-to: hsl(var(--background) / 0.3) var(--tw-gradient-to-position);
+}
+.to-background\/80 {
+  --tw-gradient-to: hsl(var(--background) / 0.8) var(--tw-gradient-to-position);
+}
+.to-background\/90 {
+  --tw-gradient-to: hsl(var(--background) / 0.9) var(--tw-gradient-to-position);
+}
+.to-background\/60 {
+  --tw-gradient-to: hsl(var(--background) / 0.6) var(--tw-gradient-to-position);
+}
+.to-background\/85 {
+  --tw-gradient-to: hsl(var(--background) / 0.85) var(--tw-gradient-to-position);
 }
 .bg-cover {
   background-size: cover;
@@ -2240,6 +2347,10 @@ All colors MUST be HSL.
   background-color: hsl(var(--secondary) / 0.8);
 }
 
+.hover\:bg-primary\/20:hover {
+  background-color: hsl(var(--primary) / 0.2);
+}
+
 .hover\:text-accent-foreground:hover {
   color: hsl(var(--accent-foreground));
 }
@@ -2258,6 +2369,15 @@ All colors MUST be HSL.
 
 .hover\:text-primary-foreground:hover {
   color: hsl(var(--primary-foreground));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-foreground\/80:hover {
+  color: hsl(var(--foreground) / 0.8);
 }
 
 .hover\:underline:hover {
@@ -2304,12 +2424,25 @@ All colors MUST be HSL.
   background-color: hsl(var(--primary) / 0.1);
 }
 
+.focus\:bg-primary\/20:focus {
+  background-color: hsl(var(--primary) / 0.2);
+}
+
 .focus\:text-accent-foreground:focus {
   color: hsl(var(--accent-foreground));
 }
 
 .focus\:text-primary-foreground:focus {
   color: hsl(var(--primary-foreground));
+}
+
+.focus\:text-white:focus {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.focus\:text-foreground\/80:focus {
+  color: hsl(var(--foreground) / 0.8);
 }
 
 .focus\:opacity-100:focus {
@@ -2324,6 +2457,12 @@ All colors MUST be HSL.
 .focus\:ring-2:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.focus\:ring-0:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
@@ -2687,6 +2826,11 @@ All colors MUST be HSL.
 
 .data-\[state\=open\]\:text-muted-foreground[data-state="open"] {
   color: hsl(var(--muted-foreground));
+}
+
+.data-\[state\=checked\]\:text-white[data-state="checked"] {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .data-\[disabled\=true\]\:opacity-50[data-disabled="true"] {
