@@ -1,1 +1,0 @@
-// Theme provider removed - using dark theme only
