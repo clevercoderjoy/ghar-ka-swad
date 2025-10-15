@@ -73,7 +73,7 @@ export function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-background/80 backdrop-blur-lg border-b border-border/50 shadow-soft"
+        ? "bg-gradient-to-b from-white/50 to-white/30 dark:from-black/40 dark:to-black/20 backdrop-blur-2xl border-b border-white/20 dark:border-black/20 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-2px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.4)] dark:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-2px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.1)]"
         : "bg-transparent"
         }`}
     >
