@@ -1,1 +1,1 @@
-export { ThemeProvider } from './theme-provider'
+// Theme provider removed - using dark theme only

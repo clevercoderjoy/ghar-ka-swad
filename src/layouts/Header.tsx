@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { MapPin } from "lucide-react";
 import {
   Select,
@@ -160,9 +159,6 @@ export function Header() {
                 </SelectItem>
               </SelectContent>
             </Select>
-
-            {/* Theme Toggle */}
-            {/* <ThemeToggle /> */}
           </div>
         </div>
       </div>

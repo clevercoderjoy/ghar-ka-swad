@@ -62,12 +62,9 @@ The project uses Tailwind CSS with a custom configuration including:
 ### shadcn/ui
 Components are configured to use the root `components/` directory with proper TypeScript paths.
 
-## 🌙 Theme Support
+## 🌙 Dark Theme
 
-The app includes dark/light mode toggle functionality:
-- Uses `next-themes` for theme management
-- Custom theme toggle component
-- Persistent theme preference
+The app uses a consistent dark theme design for optimal user experience.
 
 ## 📱 Responsive Design
 
@@ -80,7 +77,7 @@ All components are built with mobile-first responsive design using Tailwind CSS 
 - **UI Components**: shadcn/ui
 - **Language**: TypeScript
 - **Animation**: Framer Motion
-- **Theme**: next-themes
+- **Theme**: Dark theme only
 
 ## 🌐 App-Based Routing
 
