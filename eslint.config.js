@@ -3,6 +3,7 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
+import nextEslint from "@next/eslint-plugin-next";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -16,11 +17,14 @@ export default tseslint.config(
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
+      "@next/next": nextEslint,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      ...nextEslint.configs.recommended.rules,
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
     },
   },
 );
