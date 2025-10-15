@@ -112,3 +112,4 @@ bun.lockb
 *.njsproj
 *.sln
 *.sw?
+.next
