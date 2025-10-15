@@ -13,7 +13,7 @@ export function Hero() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(/assets/hero-food.jpg)` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-background/60 to-background/85" />
       </div>
 
       {/* Content */}
@@ -25,7 +25,7 @@ export function Hero() {
           className="max-w-4xl mx-auto text-center space-y-8"
         >
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -34,7 +34,7 @@ export function Hero() {
             <span className="text-md font-medium text-primary">
               Serving Fresh Home Made Food Daily
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Main Heading */}
           <motion.h1
@@ -49,14 +49,25 @@ export function Hero() {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl md:text-2xl lg:text-3xl font-medium text-foreground"
           >
             घर का खाना खाये, घर का स्वाद में खाये
-          </motion.p>
+          </motion.p> */}
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm"
+          >
+            <span className="text-lg font-semibold text-black dark:text-primary/90">
+              घर का खाना खाये, घर का स्वाद में खाये
+            </span>
+          </motion.div>
 
           {/* Description */}
           {/* <motion.p
@@ -103,16 +114,16 @@ export function Hero() {
             className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto"
           >
             <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">100+</div>
-              <div className="text-sm text-muted-foreground">Happy Customers</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">1000+</div>
+              <div className="text-sm text-foreground/90">Delighted Customers</div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl md:text-4xl font-bold text-primary">Daily</div>
-              <div className="text-sm text-muted-foreground">Fresh Meals</div>
+              <div className="text-sm text-foreground/90">Fresh Meals</div>
             </div>
             <div className="col-span-2 md:col-span-1 space-y-2">
               <div className="text-3xl md:text-4xl font-bold text-primary">5+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+              <div className="text-sm text-foreground/90">Years Experience</div>
             </div>
           </motion.div>
         </motion.div>

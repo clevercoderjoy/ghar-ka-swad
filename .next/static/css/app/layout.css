@@ -1611,6 +1611,26 @@ video {
   --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-background\/30 {
+  --tw-gradient-from: hsl(var(--background) / 0.3) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/40 {
+  --tw-gradient-from: hsl(var(--background) / 0.4) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/0 {
+  --tw-gradient-from: hsl(var(--background) / 0) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-background\/35 {
+  --tw-gradient-from: hsl(var(--background) / 0.35) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .via-accent {
   --tw-gradient-to: hsl(var(--accent) / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--accent)) var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1690,6 +1710,18 @@ video {
 }
 .to-background\/85 {
   --tw-gradient-to: hsl(var(--background) / 0.85) var(--tw-gradient-to-position);
+}
+.to-background\/50 {
+  --tw-gradient-to: hsl(var(--background) / 0.5) var(--tw-gradient-to-position);
+}
+.to-background\/0 {
+  --tw-gradient-to: hsl(var(--background) / 0) var(--tw-gradient-to-position);
+}
+.to-background\/20 {
+  --tw-gradient-to: hsl(var(--background) / 0.2) var(--tw-gradient-to-position);
+}
+.to-background\/40 {
+  --tw-gradient-to: hsl(var(--background) / 0.4) var(--tw-gradient-to-position);
 }
 .bg-cover {
   background-size: cover;
@@ -1986,6 +2018,19 @@ video {
 }
 .text-foreground\/85 {
   color: hsl(var(--foreground) / 0.85);
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+.text-primary\/90 {
+  color: hsl(var(--primary) / 0.9);
+}
+.text-foreground\/20 {
+  color: hsl(var(--foreground) / 0.2);
+}
+.text-white\/90 {
+  color: rgb(255 255 255 / 0.9);
 }
 .underline-offset-4 {
   text-underline-offset: 4px;
@@ -3239,6 +3284,43 @@ All colors MUST be HSL.
 
 .dark\:border-destructive:is(.dark *) {
   border-color: hsl(var(--destructive));
+}
+
+.dark\:text-white:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.dark\:text-primary\/20:is(.dark *) {
+  color: hsl(var(--primary) / 0.2);
+}
+
+.dark\:text-primary\/10:is(.dark *) {
+  color: hsl(var(--primary) / 0.1);
+}
+
+.dark\:text-primary\/30:is(.dark *) {
+  color: hsl(var(--primary) / 0.3);
+}
+
+.dark\:text-primary\/50:is(.dark *) {
+  color: hsl(var(--primary) / 0.5);
+}
+
+.dark\:text-primary\/60:is(.dark *) {
+  color: hsl(var(--primary) / 0.6);
+}
+
+.dark\:text-primary\/80:is(.dark *) {
+  color: hsl(var(--primary) / 0.8);
+}
+
+.dark\:text-primary\/90:is(.dark *) {
+  color: hsl(var(--primary) / 0.9);
+}
+
+.dark\:text-foreground\/90:is(.dark *) {
+  color: hsl(var(--foreground) / 0.9);
 }
 
 @media (min-width: 640px) {
