@@ -148,7 +148,7 @@ export function Header() {
             </Select>
 
             {/* Theme Toggle */}
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </div>
         </div>
       </div>

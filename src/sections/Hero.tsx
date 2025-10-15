@@ -64,7 +64,7 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm"
           >
-            <span className="text-lg font-semibold text-black dark:text-primary/90">
+            <span className="text-lg font-semibold text-primary/90 tracking-wider">
               घर का खाना खाये, घर का स्वाद में खाये
             </span>
           </motion.div>
@@ -122,7 +122,7 @@ export function Hero() {
               <div className="text-sm text-foreground/90">Fresh Meals</div>
             </div>
             <div className="col-span-2 md:col-span-1 space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-primary">5+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary">2+</div>
               <div className="text-sm text-foreground/90">Years Experience</div>
             </div>
           </motion.div>
