@@ -1,73 +1,92 @@
-# Welcome to your Lovable project
+# Ghar Ka Swad 🍽️
 
-## Project info
+A modern food delivery application built with Next.js, Tailwind CSS, and shadcn/ui.
 
-**URL**: https://lovable.dev/projects/e2a2ebe4-9686-49f9-aee4-06b2ce0b8331
+## ✨ Features
 
-## How can I edit this code?
+- **Next.js 15** with App Router for modern React development
+- **Tailwind CSS** for utility-first styling
+- **shadcn/ui** components for beautiful UI elements
+- **TypeScript** for type safety
+- **Framer Motion** for smooth animations
+- **Dark/Light mode** theme support
+- **Responsive design** for all devices
 
-There are several ways of editing your application.
+## 🚀 Quick Start
 
-**Use Lovable**
+1. Install dependencies:
+```bash
+npm install
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e2a2ebe4-9686-49f9-aee4-06b2ce0b8331) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+2. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 Project Structure
 
-**Use GitHub Codespaces**
+```
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Root layout with theme provider
+│   ├── page.tsx          # Home page
+│   ├── about/            # Example route
+│   └── globals.css       # Global styles with Tailwind
+├── components/           # Reusable components
+│   ├── ui/              # shadcn/ui components
+│   ├── providers/       # Theme provider
+│   ├── lib/            # Utility functions
+│   └── hooks/          # Custom React hooks
+├── public/             # Static assets
+└── next.config.js     # Next.js configuration
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Available Scripts
 
-## What technologies are used for this project?
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run linting
 
-This project is built with:
+## 🔧 Configuration
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Tailwind CSS
+The project uses Tailwind CSS with a custom configuration including:
+- Dark mode support
+- Custom color scheme (orange/amber theme)
+- Glass morphism utilities
+- Custom animations
 
-## How can I deploy this project?
+### shadcn/ui
+Components are configured to use the root `components/` directory with proper TypeScript paths.
 
-Simply open [Lovable](https://lovable.dev/projects/e2a2ebe4-9686-49f9-aee4-06b2ce0b8331) and click on Share -> Publish.
+## 🌙 Theme Support
 
-## Can I connect a custom domain to my Lovable project?
+The app includes dark/light mode toggle functionality:
+- Uses `next-themes` for theme management
+- Custom theme toggle component
+- Persistent theme preference
 
-Yes, you can!
+## 📱 Responsive Design
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+All components are built with mobile-first responsive design using Tailwind CSS breakpoints.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Language**: TypeScript
+- **Animation**: Framer Motion
+- **Theme**: next-themes
+
+## 🌐 App-Based Routing
+
+The project uses Next.js App Router with file-based routing:
+- `/` - Home page (main landing page)
+- `/about` - About page (example route)
+- Each route can have its own `layout.tsx`, `page.tsx`, `loading.tsx`, etc.
+
+Add new routes by creating folders in the `app/` directory with a `page.tsx` file.

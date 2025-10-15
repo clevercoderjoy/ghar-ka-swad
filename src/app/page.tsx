@@ -1,11 +1,11 @@
 import './globals.css'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import { Hero } from '@/components/Hero'
-import { Services } from '@/components/Services'
-import { WhyChooseUs } from '@/components/WhyChooseUs'
-import { Packages } from '@/components/Packages'
-import { Contact } from '@/components/Contact'
+import { Header } from '@/layouts/Header'
+import { Footer } from '@/layouts/Footer'
+import { Hero } from '@/sections/Hero'
+import { Services } from '@/sections/Services'
+import { WhyChooseUs } from '@/sections/WhyChooseUs'
+import { Packages } from '@/sections/Packages'
+import { Contact } from '@/sections/Contact'
 
 export default function HomePage() {
   return (

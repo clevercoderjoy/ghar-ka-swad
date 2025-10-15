@@ -27,10 +27,19 @@
         "./src/*"
       ],
       "@/lib/*": [
-        "./src/components/lib/*"
+        "./src/lib/*"
       ],
       "@/hooks/*": [
-        "./src/components/hooks/*"
+        "./src/hooks/*"
+      ],
+      "@/providers/*": [
+        "./src/providers/*"
+      ],
+      "@/layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@/sections/*": [
+        "./src/sections/*"
       ]
     },
     "noImplicitAny": false,

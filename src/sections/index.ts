@@ -1,0 +1,5 @@
+export { Hero } from './Hero'
+export { Services } from './Services'  
+export { WhyChooseUs } from './WhyChooseUs'
+export { Packages } from './Packages'
+export { Contact } from './Contact'
