@@ -24,13 +24,13 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
       ],
       "@/lib/*": [
-        "./components/lib/*"
+        "./src/components/lib/*"
       ],
       "@/hooks/*": [
-        "./components/hooks/*"
+        "./src/components/hooks/*"
       ]
     },
     "noImplicitAny": false,
