@@ -41,11 +41,10 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-background/80 backdrop-blur-lg border-b border-border/50 shadow-soft"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -90,14 +89,14 @@ export function Header() {
                 </div>
               </SelectTrigger>
               <SelectContent className="rounded-2xl border-2 bg-background/95 backdrop-blur-lg">
-                <SelectItem 
-                  value="darbhanga" 
+                <SelectItem
+                  value="darbhanga"
                   className="rounded-lg cursor-pointer hover:bg-primary/10 focus:bg-primary/10"
                 >
                   Darbhanga
                 </SelectItem>
-                <SelectItem 
-                  value="lucknow" 
+                <SelectItem
+                  value="lucknow"
                   className="rounded-lg cursor-pointer hover:bg-primary/10 focus:bg-primary/10"
                 >
                   Lucknow
