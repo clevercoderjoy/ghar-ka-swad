@@ -16,6 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <link rel="preload" as="image" href="/assets/logo.jpg" />
+      </head>
       <body className={montserrat.className}>
         {children}
       </body>
