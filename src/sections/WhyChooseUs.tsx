@@ -114,9 +114,8 @@ function BenefitCard({ benefit, index, isInView }) {
 }
 
 export function WhyChooseUs() {
-
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   // Card tilt for the visual container
   const {
@@ -158,7 +157,7 @@ export function WhyChooseUs() {
           {/* Content */}
           <motion.div
             ref={ref}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
             transition={{ duration: 0.8 }}
@@ -191,10 +190,10 @@ export function WhyChooseUs() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
-            transition={{ duration: 0.8 }}
-            className="relative group"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative group mb-8 lg:mb-0"
           >
             <div
               ref={visualCardRef}
@@ -203,7 +202,6 @@ export function WhyChooseUs() {
                 transform: visualTransform,
                 transition: 'transform 0.1s ease-out',
                 transformStyle: 'preserve-3d',
-                willChange: 'transform',
               }}
               className="relative aspect-square rounded-3xl overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl focus:outline-none"
               onMouseMove={handleVisualMouseMove}

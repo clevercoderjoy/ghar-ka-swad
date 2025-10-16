@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef, useCallback } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
 import heroFood from "public/assets/hero-food.jpg";
-// Card tilt animation hook (copied from Services)
-import { useRef, useCallback } from "react";
+import { Button } from "@/components/ui/button";
+import { Phone, CookingPot } from "lucide-react";
 
+// Card tilt animation hook (copied from Services)
 function useCardTilt() {
   const [transform, setTransform] = useState("");
   const cardRef = useRef(null);
@@ -23,17 +24,22 @@ function useCardTilt() {
     const rotateX = -((y - centerY) / centerY) * 15;
     setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`);
   }, []);
+  
   const handleMouseLeave = useCallback(() => {
     setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
   }, []);
+  
   const handleFocus = handleMouseLeave;
   const handleBlur = handleMouseLeave;
+  
   return { cardRef, transform, handleMouseMove, handleMouseLeave, handleFocus, handleBlur };
 }
-import { Button } from "@/components/ui/button";
-import { Phone, CookingPot } from "lucide-react";
 
 export function Hero() {
+  // ✅ YEH NAYA HAI - Services jaisa pattern
+  const heroRef = useRef(null);
+  const isInView = useInView(heroRef, { once: true, amount: 0.1 });
+
   // Tilt animation for logo
   const {
     cardRef: logoRef,
@@ -43,6 +49,7 @@ export function Hero() {
     handleFocus: handleLogoFocus,
     handleBlur: handleLogoBlur,
   } = useCardTilt();
+  
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
   const handleOrderNow = () => {
@@ -84,12 +91,13 @@ export function Hero() {
 
       {/* Content */}
       <div className="container relative z-10 px-4 py-4 sm:py-6 h-full w-full">
+        {/* ✅ YEH FIXED HAI - ref aur conditional animate add kiya */}
         <motion.div
+          ref={heroRef}
           initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="relative max-w-7xl mx-auto flex flex-col justify-between min-h-[calc(100vh-8rem)]"
-          viewport={{ once: true }}
         >
 
           {/* TOP SECTION - Logo and Main Heading */}
@@ -124,10 +132,10 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Main Heading */}
+            {/* Main Heading - ✅ YEH BHI FIXED */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none"
             >
@@ -139,10 +147,10 @@ export function Hero() {
 
           {/* CENTER SECTION - Badge and Descriptions */}
           <div className="relative z-10 text-center space-y-3 sm:space-y-4 flex-1 flex flex-col justify-center py-3 sm:py-4">
-            {/* Badge */}
+            {/* Badge - ✅ YEH BHI FIXED */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ delay: 0.1, duration: 0.4 }}
               className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm hover:bg-primary/15 transition-all duration-200 hover:scale-105 mx-auto"
             >
@@ -151,10 +159,10 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Description */}
+            {/* Description - ✅ YEH BHI FIXED */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-center max-w-2xl mx-auto leading-relaxed font-medium space-y-1.5 sm:space-y-2 px-4"
             >
@@ -173,10 +181,10 @@ export function Hero() {
 
           {/* BOTTOM SECTION - CTA Buttons and Stats */}
           <div className="relative z-10 space-y-3 sm:space-y-4 md:space-y-5 pb-3 sm:pb-4">
-            {/* CTA Buttons */}
+            {/* CTA Buttons - ✅ YEH BHI FIXED */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.4, duration: 0.5 }}
               className="flex flex-col xs:flex-row gap-2.5 sm:gap-3 justify-center items-stretch px-4 w-full max-w-md mx-auto"
             >
@@ -200,10 +208,10 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            {/* Stats */}
+            {/* Stats - ✅ YEH BHI FIXED */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.5, duration: 0.5 }}
               className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 max-w-2xl mx-auto px-2"
             >
