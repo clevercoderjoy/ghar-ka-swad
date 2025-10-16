@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Phone, CookingPot, X } from "lucide-react";
+import { Phone, CookingPot } from "lucide-react";
 
 export function Hero() {
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -20,6 +21,7 @@ export function Hero() {
   const handleCloseModal = () => {
     setIsOrderModalOpen(false);
   };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
       {/* Background Image with Overlay */}
@@ -40,48 +42,51 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 px-4 py-20 md:py-32">
+      <div className="container relative z-10 px-4 py-4 sm:py-6 h-full w-full">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative max-w-7xl mx-auto text-center space-y-8"
+          className="relative max-w-7xl mx-auto flex flex-col justify-between min-h-[calc(100vh-8rem)]"
         >
 
-          {/* Content Container */}
-          <div className="relative z-10 space-y-8">
-            {/* Badge */}
-            {/* <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm"
-          >
-            <span className="text-md font-medium text-primary">
-              Serving Fresh Home Made Food Daily
-            </span>
-          </motion.div> */}
+          {/* TOP SECTION - Logo and Main Heading */}
+          <div className="relative z-10 text-center space-y-2 sm:space-y-3 md:space-y-4 pt-2 sm:pt-4">
+            {/* Logo */}
+            <div className="flex justify-center">
+              <Image 
+                src="/assets/logo.png" 
+                alt="logo" 
+                width={170} 
+                height={170} 
+                className="mx-auto rounded-full w-[160px] h-[160px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px]" 
+                priority
+              />
+            </div>
 
             {/* Main Heading */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
+              className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-none"
             >
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-float">
                 घर का स्वाद
               </span>
             </motion.h1>
+          </div>
 
+          {/* CENTER SECTION - Badge and Descriptions */}
+          <div className="relative z-10 text-center space-y-3 sm:space-y-4 flex-1 flex flex-col justify-center py-3 sm:py-4">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.4 }}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm hover:bg-primary/15 transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm hover:bg-primary/15 transition-all duration-200 hover:scale-105 mx-auto"
             >
-              <span className="text-lg font-semibold text-primary/90 tracking-wider">
+              <span className="text-xs sm:text-sm md:text-base font-semibold text-primary/90 tracking-wide">
                 घर का खाना खाये, घर के स्वाद में खायें
               </span>
             </motion.div>
@@ -91,35 +96,46 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-base text-center md:text-lg text-foreground max-w-2xl mx-auto leading-relaxed font-medium space-y-1"
+              className="text-center max-w-2xl mx-auto leading-relaxed font-medium space-y-1.5 sm:space-y-2 px-4"
             >
-              <p className="text-md tracking-wider">The authentic home-cooked bihari cuisine.</p>
-              <p className="text-base tacking-tighter">हर खुराक में माँ के हाथ का प्यार, आपके <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-lg text-primary/90 font-semibold hover:bg-primary/15 transition-all duration-200 hover:scale-105 mx-1">घर के स्वाद</span> में |</p>
+              <p className="text-xs sm:text-sm md:text-base text-foreground tracking-wide">
+                The authentic home-cooked bihari cuisine.
+              </p>
+              <p className="text-xs sm:text-sm md:text-base text-foreground">
+                हर खुराक में माँ के हाथ का प्यार, आपके{" "}
+                <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-lg text-primary/90 font-semibold hover:bg-primary/15 transition-all duration-200 hover:scale-105 mx-0.5">
+                  घर के स्वाद
+                </span>{" "}
+                में |
+              </p>
             </motion.div>
+          </div>
 
+          {/* BOTTOM SECTION - CTA Buttons and Stats */}
+          <div className="relative z-10 space-y-3 sm:space-y-4 md:space-y-5 pb-3 sm:pb-4">
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center items-center pt-12 px-4 w-full max-w-md mx-auto"
+              className="flex flex-col xs:flex-row gap-2.5 sm:gap-3 justify-center items-stretch px-4 w-full max-w-md mx-auto"
             >
               <Button
                 size="lg"
-                className="group relative overflow-hidden rounded-full w-full xs:w-auto xs:flex-1 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold shadow-glow transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 min-w-[140px]"
+                className="group relative overflow-hidden rounded-full w-full xs:flex-1 px-5 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-semibold shadow-glow transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary/20"
                 onClick={handleOrderNow}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                <Phone className="mr-1 sm:mr-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform group-hover:rotate-12 group-hover:scale-110 duration-200" />
+                <Phone className="mr-1.5 sm:mr-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform group-hover:rotate-12 group-hover:scale-110 duration-200" />
                 <span>Order Now</span>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="group rounded-full w-full xs:w-auto xs:flex-1 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold backdrop-blur-sm border-foreground transition-all duration-200 hover:scale-105 hover:bg-primary/10 hover:border-primary/30 hover:shadow-lg min-w-[140px]"
+                className="group rounded-full w-full xs:flex-1 px-5 sm:px-6 py-3 sm:py-4 text-sm sm:text-base font-semibold backdrop-blur-sm border-foreground transition-all duration-200 hover:scale-105 hover:bg-primary/10 hover:border-primary/30 hover:shadow-lg"
                 onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <CookingPot className="mr-1 sm:mr-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform group-hover:bounce duration-200" />
+                <CookingPot className="mr-1.5 sm:mr-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform group-hover:bounce duration-200" />
                 <span>View Packages</span>
               </Button>
             </motion.div>
@@ -129,40 +145,52 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-2 max-w-2xl mx-auto"
+              className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 max-w-2xl mx-auto px-2"
             >
               <motion.div
-                className="space-y-1 sm:space-y-2 text-center p-4 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
+                className="space-y-0.5 sm:space-y-1 text-center p-2 sm:p-3 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
               >
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">1000+</div>
-                <div className="text-xs sm:text-sm text-foreground/90">Delighted Customers</div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">
+                  1000+
+                </div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-foreground/90">
+                  Delighted Customers
+                </div>
               </motion.div>
               <motion.div
-                className="space-y-1 sm:space-y-2 text-center p-4 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
+                className="space-y-0.5 sm:space-y-1 text-center p-2 sm:p-3 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
               >
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">Daily</div>
-                <div className="text-xs sm:text-sm text-foreground/90">Fresh Meals</div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">
+                  Daily
+                </div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-foreground/90">
+                  Fresh Meals
+                </div>
               </motion.div>
               <motion.div
-                className="space-y-1 sm:space-y-2 text-center p-4 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
+                className="space-y-0.5 sm:space-y-1 text-center p-2 sm:p-3 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
               >
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">2+</div>
-                <div className="text-xs sm:text-sm text-foreground/90">Years of Service</div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">
+                  2+
+                </div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-foreground/90">
+                  Years of Service
+                </div>
               </motion.div>
             </motion.div>
+          </div>
 
-          </div> {/* End of Content Container */}
         </motion.div>
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-28 bg-gradient-to-t from-background to-transparent z-20" />
 
       {/* Liquid Glass Order Modal */}
       <AnimatePresence>
@@ -197,20 +225,20 @@ export function Hero() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Liquid Glass Card */}
-              <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl">
+              <div className="relative p-6 sm:p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl">
                 {/* Glass reflection effect */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 via-transparent to-transparent" />
 
                 {/* Content */}
-                <div className="relative z-10 text-center space-y-6">
+                <div className="relative z-10 text-center space-y-4 sm:space-y-6">
                   {/* Icon */}
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                    className="mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-white/30 flex items-center justify-center"
+                    className="mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-white/30 flex items-center justify-center"
                   >
-                    <Phone className="h-8 w-8 text-white" />
+                    <Phone className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
                   </motion.div>
 
                   {/* Title */}
@@ -218,7 +246,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="text-2xl font-bold text-white"
+                    className="text-xl sm:text-2xl font-bold text-white"
                   >
                     Ready to Order?
                   </motion.h3>
@@ -228,7 +256,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-white/90 text-lg leading-relaxed"
+                    className="text-white/90 text-base sm:text-lg leading-relaxed"
                   >
                     Do you want to call and place your order now?
                   </motion.p>
@@ -238,11 +266,11 @@ export function Hero() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
-                    className="flex gap-4 pt-4"
+                    className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4"
                   >
                     <Button
                       onClick={handleCallNow}
-                      className="flex-1 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold py-3 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-white/20"
+                      className="flex-1 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold py-2.5 sm:py-3 px-5 sm:px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-white/20"
                     >
                       <Phone className="mr-2 h-4 w-4" />
                       Yes, Call Now
@@ -250,7 +278,7 @@ export function Hero() {
                     <Button
                       onClick={handleCloseModal}
                       variant="outline"
-                      className="flex-1 bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-white/40 font-semibold py-3 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
+                      className="flex-1 bg-white/10 hover:bg-white/20 text-white border-white/30 hover:border-white/40 font-semibold py-2.5 sm:py-3 px-5 sm:px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 backdrop-blur-sm"
                     >
                       Not Now
                     </Button>
