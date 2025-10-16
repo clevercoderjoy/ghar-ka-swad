@@ -3,10 +3,46 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import heroFood from "public/assets/hero-food.jpg";
+// Card tilt animation hook (copied from Services)
+import { useRef, useCallback } from "react";
+
+function useCardTilt() {
+  const [transform, setTransform] = useState("");
+  const cardRef = useRef(null);
+
+  const handleMouseMove = useCallback((e) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateY = ((x - centerX) / centerX) * 15;
+    const rotateX = -((y - centerY) / centerY) * 15;
+    setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`);
+  }, []);
+  const handleMouseLeave = useCallback(() => {
+    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
+  }, []);
+  const handleFocus = handleMouseLeave;
+  const handleBlur = handleMouseLeave;
+  return { cardRef, transform, handleMouseMove, handleMouseLeave, handleFocus, handleBlur };
+}
 import { Button } from "@/components/ui/button";
 import { Phone, CookingPot } from "lucide-react";
 
 export function Hero() {
+  // Tilt animation for logo
+  const {
+    cardRef: logoRef,
+    transform: logoTransform,
+    handleMouseMove: handleLogoMouseMove,
+    handleMouseLeave: handleLogoMouseLeave,
+    handleFocus: handleLogoFocus,
+    handleBlur: handleLogoBlur,
+  } = useCardTilt();
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
   const handleOrderNow = () => {
@@ -26,9 +62,14 @@ export function Hero() {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(/assets/hero-food.jpg)` }}
+        <Image
+          src={heroFood}
+          alt="Hero Food Background"
+          fill
+          priority
+          placeholder="blur"
+          style={{ objectFit: "cover", objectPosition: "center", zIndex: 0 }}
+          className="absolute inset-0 w-full h-full"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/35 via-background/60 to-background/85" />
       </div>
@@ -48,26 +89,39 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="relative max-w-7xl mx-auto flex flex-col justify-between min-h-[calc(100vh-8rem)]"
+          viewport={{ once: true }}
         >
 
           {/* TOP SECTION - Logo and Main Heading */}
           <div className="relative z-10 text-center space-y-2 sm:space-y-3 md:space-y-4 pt-2 sm:pt-4">
             {/* Logo */}
             <div className="flex justify-center">
-              <Image
-                src="/assets/logo.jpg"
-                alt="Ghar Ka Swaad Logo"
-                width={230}
-                height={230}
-                className="mx-auto rounded-full w-[160px] h-[160px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px]"
-                priority
-                quality={85}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAUABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFBgP/xAAjEAACAQQCAQUAAAAAAAAAAAABAgMABAURIRITIjFBUWFx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwQC/8QAHBEAAgICAwAAAAAAAAAAAAAAAAECAxEhEhMx/9oADAMBAAIRAxEAPwDO2cMF1lreG5RXQuwcEbAGzmvRc2dsljGsYhijQNy7Djkk7JP3WNwFut7mbaKeMSxjd1JGb0nqwO9VmqZWs8jZNDLLK9xAwV0k5JBHWBrnW7JZLRujglscnZZR27aGjRq8x/TZeQi/qf/Z"
-                loading="eager"
-                fetchPriority="high"
-                sizes="(max-width: 640px) 160px, (max-width: 768px) 170px, (max-width: 1024px) 200px, 220px"
-              />
+              <div
+                ref={logoRef}
+                style={{ transform: logoTransform }}
+                tabIndex={0}
+                onMouseMove={handleLogoMouseMove}
+                onMouseLeave={handleLogoMouseLeave}
+                onFocus={handleLogoFocus}
+                onBlur={handleLogoBlur}
+                className="relative mx-auto rounded-full w-[160px] h-[160px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px] focus:outline-none"
+                aria-label="Ghar Ka Swaad Logo"
+              >
+                {/* Logo Image */}
+                <Image
+                  src="/assets/logo.jpg"
+                  alt="Ghar Ka Swaad Logo"
+                  fill
+                  priority
+                  quality={85}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAUABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFBgP/xAAjEAACAQQCAQUAAAAAAAAAAAABAgMABAURIRITIjFBUWFx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwQC/8QAHBEAAgICAwAAAAAAAAAAAAAAAAECAxEhEhMx/9oADAMBAAIRAxEAPwDO2cMF1lreG5RXQuwcEbAGzmvRc2dsljGsYhijQNy7Djkk7JP3WNwFut7mbaKeMSxjd1JGb0nqwO9VmqZWs8jZNDLLK9xAwV0k5JBHWBrnW7JZLRujglscnZZR27aGjRq8x/TZeQi/qf/Z"
+                  loading="eager"
+                  fetchPriority="high"
+                  sizes="(max-width: 640px) 160px, (max-width: 768px) 170px, (max-width: 1024px) 200px, 220px"
+                  className="rounded-full object-cover"
+                />
+              </div>
             </div>
 
             {/* Main Heading */}

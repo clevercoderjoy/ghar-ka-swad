@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import logo from "public/assets/logo.jpg";
 import { MapPin, Menu, X } from "lucide-react";
 import {
   Select,
@@ -103,7 +104,7 @@ export function Header() {
               onClick={() => scrollToSection("#home")}
             >
                 <Image
-                  src="/assets/logo.jpg"
+                  src={logo}
                   alt="घर का स्वाद Logo"
                   width={35}
                   height={35}
@@ -112,6 +113,7 @@ export function Header() {
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
                   }}
                   priority
+                  placeholder="blur"
                 />
               <div className="block">
                 <h1 className="text-lg font-bold leading-tight whitespace-nowrap">घर का स्वाद</h1>
@@ -130,6 +132,7 @@ export function Header() {
                   <motion.button
                     key={item.label}
                     whileHover={{ scale: 1.05 }}
+                    viewport={{ once: true }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(item.href)}
                     className={`relative px-4 py-2 rounded-lg text-md font-medium transition-all duration-300 overflow-hidden ${isActive && !isHome

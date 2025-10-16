@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { UtensilsCrossed, Users, Clock, Heart } from "lucide-react";
 import { useRef, useState, useCallback } from "react";
+import Image from "next/image";
+import img2 from "public/assets/img2.jpg";
 
 // Custom hook for card tilt animation
 function useCardTilt() {
@@ -141,9 +143,18 @@ export function Services() {
   return (
     <section
       id="services"
-  className="py-28 sm:py-36 md:py-56 relative overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/assets/img2.jpg')", backgroundPosition: "center 0%" }}
+      className="py-28 sm:py-36 md:py-56 relative overflow-hidden bg-cover bg-center bg-no-repeat"
     >
+      {/* Optimized background image */}
+      <Image
+        src={img2}
+        alt="Services Background"
+        fill
+        priority
+        placeholder="blur"
+        style={{ objectFit: "cover", objectPosition: "center 0%", zIndex: 0 }}
+        className="absolute inset-0 w-full h-full"
+      />
       {/* Black backdrop and blur over background image */}
       <div className="absolute inset-0 z-0">
         {/* Black overlay for contrast */}
@@ -158,6 +169,7 @@ export function Services() {
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
+          viewport={{ once: true }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
           className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16"

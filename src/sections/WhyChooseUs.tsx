@@ -5,6 +5,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState, useCallback } from "react";
 import { Check } from "lucide-react";
 import Image from "next/image";
+import img4 from "public/assets/img4.jpg";
 
 const benefits = [
   "Freshly prepared daily with premium ingredients",
@@ -131,8 +132,17 @@ export function WhyChooseUs() {
     <section
       id="why-us"
       className="py-20 md:py-32 relative overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/assets/img4.jpg')", backgroundPosition: "center 20%" }}
     >
+      {/* Optimized background image */}
+      <Image
+        src={img4}
+        alt="Why Choose Us Background"
+        fill
+        priority
+        placeholder="blur"
+        style={{ objectFit: "cover", objectPosition: "center 20%", zIndex: 0 }}
+        className="absolute inset-0 w-full h-full"
+      />
       {/* Black backdrop and blur over background image */}
       <div className="absolute inset-0 z-0">
         {/* Black overlay for contrast */}
@@ -148,6 +158,7 @@ export function WhyChooseUs() {
           {/* Content */}
           <motion.div
             ref={ref}
+            viewport={{ once: true }}
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
             transition={{ duration: 0.8 }}
@@ -232,8 +243,8 @@ export function WhyChooseUs() {
                     </div>
                     <div className="space-y-2">
                       <div className="text-2xl md:text-3xl font-bold text-white">Homemade</div>
-                      <div className="text-lg text-white font-semibold">
-                        Quality & Authenticity Guaranteed
+                      <div className="text-xl text-white font-semibold">
+                        घर का खाना खाये, घर के स्वाद में खायें |
                       </div>
                     </div>
                   </div>
