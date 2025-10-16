@@ -56,11 +56,17 @@ export function Hero() {
             <div className="flex justify-center">
               <Image
                 src="/assets/logo.jpg"
-                alt="logo"
-                width={170}
-                height={170}
+                alt="Ghar Ka Swaad Logo"
+                width={230}
+                height={230}
                 className="mx-auto rounded-full w-[160px] h-[160px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px]"
                 priority
+                quality={85}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAUABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFBgP/xAAjEAACAQQCAQUAAAAAAAAAAAABAgMABAURIRITIjFBUWFx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwQC/8QAHBEAAgICAwAAAAAAAAAAAAAAAAECAxEhEhMx/9oADAMBAAIRAxEAPwDO2cMF1lreG5RXQuwcEbAGzmvRc2dsljGsYhijQNy7Djkk7JP3WNwFut7mbaKeMSxjd1JGb0nqwO9VmqZWs8jZNDLLK9xAwV0k5JBHWBrnW7JZLRujglscnZZR27aGjRq8x/TZeQi/qf/Z"
+                loading="eager"
+                fetchPriority="high"
+                sizes="(max-width: 640px) 160px, (max-width: 768px) 170px, (max-width: 1024px) 200px, 220px"
               />
             </div>
 
