@@ -47,11 +47,11 @@ export function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="relative max-w-7xl mx-auto text-center space-y-8"
         >
-          
+
           {/* Content Container */}
           <div className="relative z-10 space-y-8">
-          {/* Badge */}
-          {/* <motion.div
+            {/* Badge */}
+            {/* <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -62,102 +62,101 @@ export function Hero() {
             </span>
           </motion.div> */}
 
-          {/* Main Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
-          >
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-float">
-              घर का स्वाद
-            </span>
-          </motion.h1>
-
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm hover:bg-primary/15 transition-all duration-200 hover:scale-105"
-          >
-            <span className="text-lg font-semibold text-primary/90 tracking-wider">
-              घर का खाना खाये, घर का स्वाद में खाये
-            </span>
-          </motion.div>
-
-          {/* Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-base text-center md:text-lg text-foreground max-w-2xl mx-auto leading-relaxed font-medium space-y-1"
-          >
-            <p className="text-md tracking-wider">The authentic home-cooked bihari cuisine.</p>
-            <p className="text-base tacking-tighter">हर खुराक में माँ के हाथ का प्यार, आपके <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-lg text-primary/90 font-semibold hover:bg-primary/15 transition-all duration-200 hover:scale-105 mx-1">घर के स्वाद</span> में |</p>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="flex flex-row gap-3 sm:gap-4 justify-center items-center pt-24"
-          >
-            <Button
-              size="lg"
-              className="group relative overflow-hidden rounded-full px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold shadow-glow transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary/20"
-              onClick={handleOrderNow}
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-              <Phone className="mr-1 sm:mr-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform group-hover:rotate-12 group-hover:scale-110 duration-200" />
-              <span className="hidden xs:inline">Order Now</span>
-              <span className="xs:hidden">Order</span>
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="group rounded-full px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold backdrop-blur-sm border-foreground transition-all duration-200 hover:scale-105 hover:bg-primary/10 hover:border-primary/30 hover:shadow-lg"
-              onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <CookingPot className="mr-1 sm:mr-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform group-hover:bounce duration-200" />
-              <span className="hidden xs:inline">View Packages</span>
-            </Button>
-          </motion.div>
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-float">
+                घर का स्वाद
+              </span>
+            </motion.h1>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-2 max-w-2xl mx-auto"
-          >
-            <motion.div 
-              className="space-y-1 sm:space-y-2 text-center p-4 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
-              whileHover={{ y: -5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm hover:bg-primary/15 transition-all duration-200 hover:scale-105"
             >
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">1000+</div>
-              <div className="text-xs sm:text-sm text-foreground/90">Delighted Customers</div>
+              <span className="text-lg font-semibold text-primary/90 tracking-wider">
+                घर का खाना खाये, घर के स्वाद में खायें
+              </span>
             </motion.div>
-            <motion.div 
-              className="space-y-1 sm:space-y-2 text-center p-4 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
-              whileHover={{ y: -5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+
+            {/* Description */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-base text-center md:text-lg text-foreground max-w-2xl mx-auto leading-relaxed font-medium space-y-1"
             >
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">Daily</div>
-              <div className="text-xs sm:text-sm text-foreground/90">Fresh Meals</div>
+              <p className="text-md tracking-wider">The authentic home-cooked bihari cuisine.</p>
+              <p className="text-base tacking-tighter">हर खुराक में माँ के हाथ का प्यार, आपके <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-lg text-primary/90 font-semibold hover:bg-primary/15 transition-all duration-200 hover:scale-105 mx-1">घर के स्वाद</span> में |</p>
             </motion.div>
-            <motion.div 
-              className="space-y-1 sm:space-y-2 text-center p-4 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
-              whileHover={{ y: -5 }}
-              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center items-center pt-12 px-4 w-full max-w-md mx-auto"
             >
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">2+</div>
-              <div className="text-xs sm:text-sm text-foreground/90">Years of Service</div>
+              <Button
+                size="lg"
+                className="group relative overflow-hidden rounded-full w-full xs:w-auto xs:flex-1 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold shadow-glow transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 min-w-[140px]"
+                onClick={handleOrderNow}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                <Phone className="mr-1 sm:mr-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform group-hover:rotate-12 group-hover:scale-110 duration-200" />
+                <span>Order Now</span>
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="group rounded-full w-full xs:w-auto xs:flex-1 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold backdrop-blur-sm border-foreground transition-all duration-200 hover:scale-105 hover:bg-primary/10 hover:border-primary/30 hover:shadow-lg min-w-[140px]"
+                onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                <CookingPot className="mr-1 sm:mr-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform group-hover:bounce duration-200" />
+                <span>View Packages</span>
+              </Button>
             </motion.div>
-          </motion.div>
-          
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-2 max-w-2xl mx-auto"
+            >
+              <motion.div
+                className="space-y-1 sm:space-y-2 text-center p-4 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              >
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">1000+</div>
+                <div className="text-xs sm:text-sm text-foreground/90">Delighted Customers</div>
+              </motion.div>
+              <motion.div
+                className="space-y-1 sm:space-y-2 text-center p-4 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              >
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">Daily</div>
+                <div className="text-xs sm:text-sm text-foreground/90">Fresh Meals</div>
+              </motion.div>
+              <motion.div
+                className="space-y-1 sm:space-y-2 text-center p-4 rounded-2xl transition-all duration-200 hover:bg-white/5 hover:backdrop-blur-sm hover:scale-105 cursor-pointer group"
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              >
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary group-hover:scale-110 transition-transform duration-200">2+</div>
+                <div className="text-xs sm:text-sm text-foreground/90">Years of Service</div>
+              </motion.div>
+            </motion.div>
+
           </div> {/* End of Content Container */}
         </motion.div>
       </div>
