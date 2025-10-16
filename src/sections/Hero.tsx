@@ -104,7 +104,7 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-center max-w-2xl mx-auto leading-relaxed font-medium space-y-1.5 sm:space-y-2 px-4"
             >
-              <p className="text-xs sm:text-sm md:text-base text-foreground tracking-wide">
+              <p className="text-base sm:text-sm md:text-base text-foreground tracking-wider">
                 The authentic home-cooked bihari cuisine.
               </p>
               <p className="text-xs sm:text-sm md:text-base text-foreground">
