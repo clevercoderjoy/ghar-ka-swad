@@ -2,30 +2,135 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { UtensilsCrossed, Users, Clock, Heart } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useRef, useState, useCallback } from "react";
+
+// Custom hook for card tilt animation
+function useCardTilt() {
+  const [transform, setTransform] = useState("");
+  const cardRef = useRef(null);
+
+  const handleMouseMove = useCallback((e) => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+
+    const rotateY = ((x - centerX) / centerX) * 15;
+    const rotateX = -((y - centerY) / centerY) * 15;
+
+    setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
+  }, []);
+
+  // For accessibility: reset tilt on focus/blur
+  const handleFocus = handleMouseLeave;
+  const handleBlur = handleMouseLeave;
+
+  return {
+    cardRef,
+    transform,
+    handleMouseMove,
+    handleMouseLeave,
+    handleFocus,
+    handleBlur,
+  };
+}
+
+// ServiceCard component for each card
+function ServiceCard({ service, index, isInView }: { service: typeof services[number]; index: number; isInView: boolean }) {
+  const {
+    cardRef,
+    transform,
+    handleMouseMove,
+    handleMouseLeave,
+    handleFocus,
+    handleBlur,
+  } = useCardTilt();
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 64 }}
+      transition={{ duration: 0.01, delay: 0, ease: "easeInOut" }}
+      className="group"
+    >
+      {/* Liquid Glass Card */}
+      <div
+        ref={cardRef}
+        tabIndex={0}
+        style={{
+          transform: transform,
+          transition: "transform 0.1s ease-out",
+          transformStyle: "preserve-3d",
+          willChange: "transform",
+        }}
+        className="relative h-full p-6 sm:p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-shadow duration-100 overflow-hidden focus:outline-none"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        aria-label={service.title}
+      >
+        {/* Glass reflection effect */}
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 via-transparent to-transparent" style={{ transform: "translateZ(20px)" }} />
+        {/* Ambient light effects */}
+        <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-200" />
+        {/* Content */}
+        <div className="relative z-10 space-y-4 sm:space-y-5" style={{ transform: "translateZ(40px)" }}>
+          {/* Icon Container - perfectly centered */}
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.09, ease: "easeOut" }}
+            className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-white/30 flex items-center justify-center mx-auto my-0 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-100"
+            style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+          >
+            <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary group-hover:text-accent transition-colors duration-200 mx-auto my-0" />
+          </motion.div>
+          {/* Title */}
+          <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-200 text-center">
+            {service.title}
+          </h3>
+          {/* Description */}
+          <p className="text-sm sm:text-base text-foreground/80 leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+        {/* Hover gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-3xl" />
+      </div>
+    </motion.div>
+  );
+}
 
 const services = [
   {
     icon: UtensilsCrossed,
     title: "Daily Tiffin Service",
-    description: "Fresh, nutritious meals delivered daily to your doorstep. Perfect for working professionals and students."
+    description: "Get fresh, घर का खाना in घर का स्वाद delivered daily at your doorstep. Perfect for working professionals and students."
   },
   {
     icon: Users,
     title: "Catering Services",
-    description: "Complete catering solutions for your events, parties, and celebrations with customizable menus."
+    description: "From office lunches to house parties to kitty parties to office meetings We've got you all covered."
   },
   {
     icon: Clock,
-    title: "Flexible Timings",
-    description: "Choose your preferred delivery times - breakfast, lunch, or dinner. We adapt to your schedule."
+    title: "3-Time tiffin",
+    description: "Choose your preferred meal combination - breakfast, lunch or dinner. We deliver you all."
   },
   {
     icon: Heart,
     title: "Made with Love",
-    description: "Every meal is prepared with care by our mother, bringing authentic home-cooked taste to you."
+    description: "Every meal is prepared with love & care by our mother. We eat the same food we serve our customers."
   }
 ];
 
@@ -34,46 +139,40 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-20 md:py-32 relative overflow-hidden">
-      <div className="container px-4">
+    <section id="services" className="py-16 sm:py-20 md:py-32 relative overflow-hidden">
+      {/* Liquid Glass Background Container */}
+      <div className="absolute inset-0 z-0 bg-white/5 backdrop-blur-sm">
+        {/* Glass reflection effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
+        {/* Ambient light effects */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 blur-xl opacity-30 animate-pulse" />
+      </div>
+
+      <div className="container px-4 relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-4 mb-16"
+          className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
             Our Services
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            From daily tiffins to special events, we've got your food needs covered
+          <p className="text-base sm:text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto px-4">
+            From daily tiffins to special events, we've got you all covered
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Card className="group h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:scale-105">
-                <CardContent className="p-6 space-y-4">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                    <service.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold">{service.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+            <ServiceCard key={service.title} service={service} index={index} isInView={isInView} />
           ))}
         </div>
       </div>
+
+      {/* Bottom decorative gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 bg-gradient-to-t from-background to-transparent z-5" />
     </section>
   );
 }

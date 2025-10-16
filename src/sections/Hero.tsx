@@ -107,7 +107,7 @@ export function Hero() {
               <p className="text-base sm:text-sm md:text-base text-foreground tracking-wider">
                 The authentic home-cooked bihari cuisine.
               </p>
-              <p className="text-xs sm:text-sm md:text-base text-foreground">
+              <p className="text-xs sm:text-sm md:text-base text-foreground tracking-tight">
                 हर खुराक में माँ के हाथ का प्यार, आपके{" "}
                 <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-lg text-primary/90 font-semibold hover:bg-primary/15 transition-all duration-200 hover:scale-105 mx-0.5">
                   घर के स्वाद

@@ -13,8 +13,8 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <Services />
         <WhyChooseUs />
+        <Services />
         <Packages />
         <Contact />
       </main>
