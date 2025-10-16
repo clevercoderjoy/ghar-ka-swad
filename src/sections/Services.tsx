@@ -139,9 +139,15 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-16 sm:py-20 md:py-32 relative overflow-hidden">
-      {/* Liquid Glass Background Container */}
-      <div className="absolute inset-0 z-0 bg-white/5 backdrop-blur-sm">
+    <section
+      id="services"
+  className="py-28 sm:py-36 md:py-56 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/assets/img2.jpg')", backgroundPosition: "center 0%" }}
+    >
+      {/* Black backdrop and blur over background image */}
+      <div className="absolute inset-0 z-0">
+        {/* Black overlay for contrast */}
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-[5px]" />
         {/* Glass reflection effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
         {/* Ambient light effects */}
@@ -172,7 +178,7 @@ export function Services() {
       </div>
 
       {/* Bottom decorative gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 bg-gradient-to-t from-background to-transparent z-5" />
+      <div className="absolute bottom-0 left-0 right-0 h-10 sm:h-12 md:h-16 bg-gradient-to-t from-background to-transparent z-5" />
     </section>
   );
 }

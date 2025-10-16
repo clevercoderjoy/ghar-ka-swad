@@ -175,7 +175,7 @@ export function Header() {
               {/* Location Select */}
               <Select value={location} onValueChange={setLocation}>
                 <SelectTrigger
-                  className="w-[160px] rounded-full border border-orange-400/60 bg-white/10 backdrop-blur-md hover:bg-white/20 focus:ring-0 focus:outline-none transition-all duration-300"
+                  className="w-[160px] rounded-full border border-[#FC8019]/60 bg-white/10 backdrop-blur-md hover:bg-white/20 focus:ring-0 focus:outline-none transition-all duration-300"
                   style={{
                     boxShadow: '0 4px 32px 0 rgba(31, 38, 135, 0.37)',
                     WebkitBackdropFilter: 'blur(8px)',
@@ -191,7 +191,7 @@ export function Header() {
                   </div>
                 </SelectTrigger>
                 <SelectContent
-                  className="rounded-2xl font-medium border border-orange-400/60 bg-white/10 backdrop-blur-lg"
+                  className="rounded-2xl font-medium border border-[#FC8019]/60 bg-white/10 backdrop-blur-lg"
                   style={{
                     boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
                     WebkitBackdropFilter: 'blur(16px)',
@@ -200,14 +200,14 @@ export function Header() {
                 >
                   <SelectItem
                     value="darbhanga"
-                    className="rounded-lg cursor-pointer text-white/90 hover:bg-white/20 hover:text-white hover:border hover:border-orange-400/60 focus:bg-white/20 focus:text-white data-[state=checked]:bg-orange-400/30 data-[state=checked]:text-white data-[state=checked]:border data-[state=checked]:border-orange-400 mb-[0.5rem] mt-1 h-8"
+                    className="rounded-lg cursor-pointer text-white/90 hover:bg-white/20 hover:text-white hover:border hover:border-[#FC8019]/60 focus:bg-white/20 focus:text-white data-[state=checked]:bg-[#FC8019]/30 data-[state=checked]:text-white data-[state=checked]:border data-[state=checked]:border-[#FC8019] mb-[0.5rem] mt-1 h-8"
                     style={{ backdropFilter: 'blur(4px)' }}
                   >
                     Darbhanga
                   </SelectItem>
                   <SelectItem
                     value="lucknow"
-                    className="rounded-lg cursor-pointer text-white/90 hover:bg-white/20 hover:text-white hover:border hover:border-orange-400/60 focus:bg-white/20 focus:text-white data-[state=checked]:bg-orange-400/30 data-[state=checked]:text-white data-[state=checked]:border data-[state=checked]:border-orange-400 mb-1 h-8"
+                    className="rounded-lg cursor-pointer text-white/90 hover:bg-white/20 hover:text-white hover:border hover:border-[#FC8019]/60 focus:bg-white/20 focus:text-white data-[state=checked]:bg-[#FC8019]/30 data-[state=checked]:text-white data-[state=checked]:border data-[state=checked]:border-[#FC8019] mb-1 h-8"
                     style={{ backdropFilter: 'blur(4px)' }}
                   >
                     Lucknow
@@ -219,7 +219,7 @@ export function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg border border-orange-400/60 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300"
+                className="lg:hidden p-2 rounded-lg border border-[#FC8019]/60 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300"
                 style={{
                   boxShadow: '0 4px 32px 0 rgba(31, 38, 135, 0.37)',
                   WebkitBackdropFilter: 'blur(8px)',
@@ -309,7 +309,7 @@ export function Header() {
                             ? "text-white border border-white/30"
                             : isActive && isHome
                               ? "text-white/90 border border-white/20"
-                              : "text-white/80 border border-white/10 hover:border-orange-400/60 hover:bg-white/10"
+                              : "text-white/80 border border-white/10 hover:border-[#FC8019]/60 hover:bg-white/10"
                           }`}
                       >
                         {/* Liquid Glass Background for Active Items */}

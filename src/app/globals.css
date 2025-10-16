@@ -59,7 +59,8 @@ All colors MUST be HSL.
     --popover-foreground: 0 0% 95%;
 
     /* Warm amber/orange for dark mode */
-    --primary: 30 100% 60%;
+    /* Swiggy Orange for dark mode */
+    --primary: 32 98% 55%; /* #FC8019 in HSL */
     --primary-foreground: 220 15% 8%;
 
     --secondary: 220 15% 15%;
