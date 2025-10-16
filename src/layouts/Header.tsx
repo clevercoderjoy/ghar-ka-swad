@@ -116,7 +116,7 @@ export function Header() {
                   घ
                 </span>
               </div>
-              <div className="hidden sm:block">
+              <div className="block">
                 <h1 className="text-lg font-bold leading-tight whitespace-nowrap">घर का स्वाद</h1>
                 <p className="text-xs text-foreground/90 whitespace-nowrap">Home Cooked Meals</p>
               </div>
@@ -178,7 +178,7 @@ export function Header() {
               {/* Location Select */}
               <Select value={location} onValueChange={setLocation}>
                 <SelectTrigger
-                  className="w-[140px] md:w-[160px] rounded-full border border-orange-400/60 bg-white/10 backdrop-blur-md hover:bg-white/20 focus:ring-0 focus:outline-none transition-all duration-300"
+                  className="w-[160px] rounded-full border border-orange-400/60 bg-white/10 backdrop-blur-md hover:bg-white/20 focus:ring-0 focus:outline-none transition-all duration-300"
                   style={{
                     boxShadow: '0 4px 32px 0 rgba(31, 38, 135, 0.37)',
                     WebkitBackdropFilter: 'blur(8px)',
