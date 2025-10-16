@@ -111,6 +111,7 @@ export function Header() {
                   style={{
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
                   }}
+                  priority
                 />
               <div className="block">
                 <h1 className="text-lg font-bold leading-tight whitespace-nowrap">घर का स्वाद</h1>
