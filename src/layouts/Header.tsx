@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { MapPin, Menu, X } from "lucide-react";
 import {
   Select,
@@ -98,24 +99,19 @@ export function Header() {
             {/* Logo - Left */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 cursor-pointer"
+              className="flex items-center gap-1 cursor-pointer"
               onClick={() => scrollToSection("#home")}
             >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-glow backdrop-blur-md bg-white/20 border border-white/30" style={{ boxShadow: '0 4px 32px 0 rgba(31, 38, 135, 0.37)', WebkitBackdropFilter: 'blur(8px)', backdropFilter: 'blur(8px)' }}>
-                <span
-                  className="text-xl font-bold text-white/90 relative"
+                <Image
+                  src="/assets/logo.jpg"
+                  alt="घर का स्वाद Logo"
+                  width={35}
+                  height={35}
+                  className="rounded-full object-cover"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.3) 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    textShadow: '0 0 20px rgba(255,255,255,0.5)',
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
                   }}
-                >
-                  घ
-                </span>
-              </div>
+                />
               <div className="block">
                 <h1 className="text-lg font-bold leading-tight whitespace-nowrap">घर का स्वाद</h1>
                 <p className="text-xs text-foreground/90 whitespace-nowrap">Home Cooked Meals</p>
