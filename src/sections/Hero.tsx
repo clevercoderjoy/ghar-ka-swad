@@ -54,12 +54,12 @@ export function Hero() {
           <div className="relative z-10 text-center space-y-2 sm:space-y-3 md:space-y-4 pt-2 sm:pt-4">
             {/* Logo */}
             <div className="flex justify-center">
-              <Image 
-                src="/assets/logo.jpg" 
-                alt="logo" 
-                width={170} 
-                height={170} 
-                className="mx-auto rounded-full w-[160px] h-[160px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px]" 
+              <Image
+                src="/assets/logo.jpg"
+                alt="logo"
+                width={170}
+                height={170}
+                className="mx-auto rounded-full w-[160px] h-[160px] sm:w-[170px] sm:h-[170px] md:w-[200px] md:h-[200px] lg:w-[220px] lg:h-[220px]"
                 priority
               />
             </div>
