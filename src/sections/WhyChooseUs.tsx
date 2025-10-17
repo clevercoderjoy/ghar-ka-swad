@@ -17,7 +17,9 @@ const benefits = [
   "No preservatives or artificial additives"
 ];
 
-// Custom hook for card tilt animation
+/**
+ * Custom hook for card tilt animation for benefit cards
+ */
 function useCardTilt() {
   const [transform, setTransform] = useState("");
   const cardRef = useRef(null);
@@ -56,6 +58,9 @@ function useCardTilt() {
 }
 
 // BenefitCard component with liquid glass effect
+/**
+ * Card for displaying a single benefit
+ */
 function BenefitCard({ benefit }) {
   const {
     cardRef,
@@ -107,6 +112,10 @@ function BenefitCard({ benefit }) {
   );
 }
 
+/**
+ * WhyChooseUs section for homepage
+ * Shows benefits and visual card
+ */
 export function WhyChooseUs() {
   // Removed useInView, always show content
 

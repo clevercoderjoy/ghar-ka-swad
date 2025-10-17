@@ -6,7 +6,9 @@ import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import img2 from "public/assets/img2.jpg";
 
-// Custom hook for card tilt animation
+/**
+ * Custom hook for card tilt animation for service cards
+ */
 function useCardTilt() {
   const [transform, setTransform] = useState("");
   const cardRef = useRef(null);
@@ -47,6 +49,9 @@ function useCardTilt() {
 }
 
 // ServiceCard component for each card
+/**
+ * Card for displaying a single service
+ */
 function ServiceCard({ service }: { service: typeof services[number] }) {
   const {
     cardRef,
@@ -128,6 +133,10 @@ const services = [
   }
 ];
 
+/**
+ * Services section for homepage
+ * Shows all service cards
+ */
 export function Services() {
   // Removed useInView, always show content
 

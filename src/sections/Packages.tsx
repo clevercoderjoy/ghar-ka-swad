@@ -48,6 +48,10 @@ const packages = [
   }
 ];
 
+/**
+ * Packages section for homepage
+ * Shows all package cards
+ */
 export function Packages() {
   // Removed useInView, always show content
 

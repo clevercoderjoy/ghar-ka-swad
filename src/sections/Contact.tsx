@@ -33,6 +33,10 @@ const contactInfo = [
   }
 ];
 
+/**
+ * Contact section for homepage
+ * Shows contact info and CTA card
+ */
 export function Contact() {
   // Removed useInView, always show content
 

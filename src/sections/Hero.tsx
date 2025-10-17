@@ -9,7 +9,9 @@ import { Button } from "@/components/ui/button";
 
 import { Phone, CookingPot } from "lucide-react";
 
-// Card tilt animation hook (copied from Services)
+/**
+ * Card tilt animation hook for interactive logo effect
+ */
 function useCardTilt() {
   const [transform, setTransform] = useState("");
   const cardRef = useRef(null);
@@ -37,6 +39,10 @@ function useCardTilt() {
   return { cardRef, transform, handleMouseMove, handleMouseLeave, handleFocus, handleBlur };
 }
 
+/**
+ * Hero section for homepage
+ * Shows logo, heading, description, CTA buttons, and stats
+ */
 export function Hero() {
   // ✅ YEH NAYA HAI - Services jaisa pattern
   // Removed useInView, always show content
