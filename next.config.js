@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost'],
-    qualities: [85],
+    domains: ['localhost', 'https://ghar-ka-swad.vercel.app/'],
   },
   async headers() {
     return [
       {
-        source: '/assets/logo.jpg',
+        source: '/assets/:all*',
         headers: [
           {
             key: 'Cache-Control',
