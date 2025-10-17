@@ -11,14 +11,14 @@ export function Footer() {
               Bringing home-cooked meals to your doorstep
             </p>
           </div>
-          
+
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span>Made with</span>
             <Heart className="w-4 h-4 text-primary fill-primary animate-pulse" />
             <span>in Darbhanga, Bihar</span>
           </div>
         </div>
-        
+
         <div className="mt-6 pt-6 border-t border-border/50 text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Ghar ka Swad. All rights reserved.</p>
         </div>

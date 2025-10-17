@@ -271,7 +271,7 @@ export function Header() {
 
                 {/* Menu Items */}
                 <nav className="flex flex-col gap-2">
-                  {menuItems.map((item, index) => {
+                  {menuItems.map((item) => {
                     const sectionId = item.href.replace("#", "");
                     const isActive = activeSection === sectionId;
                     const isHome = item.label === "Home";
