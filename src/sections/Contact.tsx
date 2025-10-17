@@ -1,7 +1,6 @@
 "use client";
 
 // Removed Framer Motion imports
-import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
