@@ -14,7 +14,7 @@ import { Phone, CookingPot } from "lucide-react";
  */
 function useCardTilt() {
   const [transform, setTransform] = useState("");
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
