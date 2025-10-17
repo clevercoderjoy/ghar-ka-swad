@@ -155,10 +155,10 @@ export function Hero() {
             <div
               className="text-center max-w-2xl mx-auto leading-relaxed font-medium space-y-1.5 sm:space-y-2 px-4 transition-all duration-700 ease-out opacity-100 translate-y-0"
             >
-              <p className="text-base sm:text-sm md:text-base text-foreground tracking-wider">
+              <p className="text-base sm:text-sm md:text-lg text-foreground tracking-wider">
                 The authentic home-cooked bihari cuisine.
               </p>
-              <p className="text-xs sm:text-sm md:text-base text-foreground tracking-tight">
+              <p className="text-xs sm:text-sm md:text-sm text-foreground tracking-tight">
                 हर खुराक में माँ के हाथ का प्यार, आपके{" "}
                 <span className="inline-flex items-center px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-lg text-primary/90 font-semibold hover:bg-primary/15 transition-all duration-200 hover:scale-105 mx-0.5">
                   घर के स्वाद

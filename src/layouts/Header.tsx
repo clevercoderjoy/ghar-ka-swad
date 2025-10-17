@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-// Removed Framer Motion imports
 import Image from "next/image";
 import logo from "public/assets/logo.svg";
 import { MapPin, Menu, X } from "lucide-react";
@@ -228,105 +227,91 @@ export function Header() {
   </header>
 
       {/* Mobile Menu Drawer */}
-      {mobileMenuOpen && (
-        <>
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 opacity-100"
-            onClick={() => setMobileMenuOpen(false)}
+      {/* Mobile Menu Drawer with sliding animation (always rendered for transition) */}
+      <div className="fixed inset-0 z-50 lg:hidden pointer-events-none select-none">
+        {/* Backdrop */}
+        <div
+          className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+        {/* Drawer with slide-in/out animation */}
+        <div
+          className={`absolute top-0 right-0 h-full w-[280px] sm:w-[320px] transition-transform duration-150 transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} pointer-events-auto`}
+        >
+          {/* Liquid Glass Background */}
+          <div className="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border-l border-white/20 shadow-2xl"
+            style={{
+              boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+              WebkitBackdropFilter: 'blur(16px)',
+              backdropFilter: 'blur(16px)'
+            }}
           />
-
-          {/* Drawer */}
-          <div
-            className="fixed top-0 right-0 h-full w-[280px] sm:w-[320px] z-50 lg:hidden transition-transform duration-400 transform translate-x-0"
-            style={{ right: 0 }}
-          >
-              {/* Liquid Glass Background */}
-              <div className="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border-l border-white/20 shadow-2xl"
-                style={{
-                  boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  backdropFilter: 'blur(16px)'
-                }}
-              />
-
-              {/* Glass reflection effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent" />
-
-              {/* Ambient light effects */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 blur-xl opacity-30 animate-pulse" />
-
-              {/* Menu Content */}
-              <div className="relative h-full flex flex-col p-6">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-xl font-bold text-white/90">Menu</h2>
-                  <button
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-200 hover:scale-110 active:scale-90"
-                  >
-                    <X className="h-5 w-5 text-white/90" />
-                  </button>
-                </div>
-
-                {/* Menu Items */}
-                <nav className="flex flex-col gap-2">
-                  {menuItems.map((item) => {
-                    const sectionId = item.href.replace("#", "");
-                    const isActive = activeSection === sectionId;
-                    const isHome = item.label === "Home";
-
-                    return (
-                      <button
-                        key={item.label}
-                        onClick={() => scrollToSection(item.href)}
-                        className={`relative px-6 py-4 rounded-xl text-left font-medium transition-all duration-300 overflow-hidden ${isActive && !isHome
-                            ? "text-white border border-white/30"
-                            : isActive && isHome
-                              ? "text-white/90 border border-white/20"
-                              : "text-white/80 border border-white/10 hover:border-[#FC8019]/60 hover:bg-white/10"
-                          } hover:scale-102 active:scale-98`}
-                      >
-                        {/* Liquid Glass Background for Active Items */}
-                        {isActive && !isHome && (
-                          <>
-                            {/* Main liquid glass background */}
-                            <div className="absolute inset-0 bg-white/10 backdrop-blur-xl shadow-lg"
-                              style={{
-                                boxShadow: '0 4px 32px 0 rgba(31, 38, 135, 0.37)',
-                                WebkitBackdropFilter: 'blur(8px)',
-                                backdropFilter: 'blur(8px)'
-                              }}
-                            />
-
-                            {/* Glass reflection effect */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent" />
-
-                            {/* Primary color overlay - Orange */}
-                            <div className="absolute inset-0 bg-primary/80" />
-
-                            {/* Ambient light effects */}
-                            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-sm opacity-40 animate-pulse" />
-
-                            {/* Additional glass border effect */}
-                            <div className="absolute inset-0 rounded-xl border border-white/30 shadow-inner" />
-                          </>
-                        )}
-
-                        {/* Home active state with subtle glass */}
-                        {isActive && isHome && (
-                          <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
-                        )}
-
-                        <span className="relative z-10 text-base">{item.label}</span>
-                      </button>
-                    );
-                  })}
-                </nav>
-              </div>
+          {/* Glass reflection effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent" />
+          {/* Ambient light effects */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 blur-xl opacity-30 animate-pulse" />
+          {/* Menu Content */}
+          <div className="relative h-full flex flex-col p-6">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-xl font-bold text-white/90">Menu</h2>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-200 hover:scale-110 active:scale-90"
+              >
+                <X className="h-5 w-5 text-white/90" />
+              </button>
             </div>
-        </>
-      )}
+            {/* Menu Items */}
+            <nav className="flex flex-col gap-2">
+              {menuItems.map((item) => {
+                const sectionId = item.href.replace("#", "");
+                const isActive = activeSection === sectionId;
+                const isHome = item.label === "Home";
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.href)}
+                    className={`relative px-6 py-4 rounded-xl text-left font-medium transition-all duration-300 overflow-hidden ${isActive && !isHome
+                        ? "text-white border border-white/30"
+                        : isActive && isHome
+                          ? "text-white/90 border border-white/20"
+                          : "text-white/80 border border-white/10 hover:border-[#FC8019]/60 hover:bg-white/10"
+                      } hover:scale-102 active:scale-98`}
+                  >
+                    {/* Liquid Glass Background for Active Items */}
+                    {isActive && !isHome && (
+                      <>
+                        {/* Main liquid glass background */}
+                        <div className="absolute inset-0 bg-white/10 backdrop-blur-xl shadow-lg"
+                          style={{
+                            boxShadow: '0 4px 32px 0 rgba(31, 38, 135, 0.37)',
+                            WebkitBackdropFilter: 'blur(8px)',
+                            backdropFilter: 'blur(8px)'
+                          }}
+                        />
+                        {/* Glass reflection effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent" />
+                        {/* Primary color overlay - Orange */}
+                        <div className="absolute inset-0 bg-primary/80" />
+                        {/* Ambient light effects */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl blur-sm opacity-40 animate-pulse" />
+                        {/* Additional glass border effect */}
+                        <div className="absolute inset-0 rounded-xl border border-white/30 shadow-inner" />
+                      </>
+                    )}
+                    {/* Home active state with subtle glass */}
+                    {isActive && isHome && (
+                      <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
+                    )}
+                    <span className="relative z-10 text-base">{item.label}</span>
+                  </button>
+                );
+              })}
+            </nav>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
