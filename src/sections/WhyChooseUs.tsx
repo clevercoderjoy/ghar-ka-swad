@@ -221,7 +221,7 @@ export function WhyChooseUs() {
                 {/* Background image */}
                 <div className="absolute inset-0 w-full h-full">
                   <Image
-                    src="/assets/img1.webp"
+                    src="/assets/img1.svg"
                     alt="Homemade Food"
                     fill
                     className="object-cover rounded-3xl w-full h-full"

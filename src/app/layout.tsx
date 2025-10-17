@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 
 import logo from "public/assets/logo.svg";
+import favicon from "public/favicon.ico";
 import './globals.css'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
@@ -19,7 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-  <link rel="preload" as="image" href={logo.src} />
+        <link rel="preload" as="image" href={logo.src} />
+        <link rel="icon" href={favicon.src} />
       </head>
       <body className={montserrat.className}>
         {children}
