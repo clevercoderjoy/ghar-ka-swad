@@ -89,7 +89,7 @@ export function Hero() {
       </div>
 
       {/* Full Hero Liquid Glass Container */}
-      <div className="absolute inset-0 z-5 bg-white/0.5 backdrop-blur-sm border-0 shadow-2xl">
+      <div className="absolute inset-0 z-5 bg-white/0.5 backdrop-blur-[1px] border-0 shadow-2xl">
         {/* Glass reflection effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/2 via-transparent to-transparent" />
         {/* Ambient light effects */}

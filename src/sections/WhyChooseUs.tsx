@@ -147,7 +147,7 @@ export function WhyChooseUs() {
       {/* Black backdrop and blur over background image */}
       <div className="absolute inset-0 z-0">
         {/* Black overlay for contrast */}
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-[5px]" />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
         {/* Glass reflection effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
         {/* Ambient light effects */}

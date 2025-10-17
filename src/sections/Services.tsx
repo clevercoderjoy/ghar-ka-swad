@@ -64,7 +64,6 @@ function ServiceCard({ service }: { service: typeof services[number] }) {
 
   return (
     <div className="group transition-all duration-700 ease-out opacity-100 translate-y-0">
-      {/* Liquid Glass Card */}
       <div
         ref={cardRef}
         tabIndex={0}
@@ -74,7 +73,7 @@ function ServiceCard({ service }: { service: typeof services[number] }) {
           transformStyle: "preserve-3d",
           willChange: "transform",
         }}
-        className="relative h-full p-6 sm:p-8 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-shadow duration-100 overflow-hidden focus:outline-none"
+        className="relative h-full p-6 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl hover:shadow-2xl transition-shadow duration-100 overflow-hidden focus:outline-none"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         onFocus={handleFocus}
@@ -88,11 +87,8 @@ function ServiceCard({ service }: { service: typeof services[number] }) {
         {/* Content */}
         <div className="relative z-10 space-y-4 sm:space-y-5" style={{ transform: "translateZ(40px)" }}>
           {/* Icon Container - perfectly centered */}
-          <div
-            className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-white/30 flex items-center justify-center mx-auto my-0 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-100 hover:scale-110"
-            style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-          >
-            <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary group-hover:text-accent transition-colors duration-200 mx-auto my-0" />
+          <div className="w-12 h-12 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center transition-colors duration-300 group-hover:bg-primary/20">
+            <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary transition-transform duration-200 group-hover:scale-110" />
           </div>
           {/* Title */}
           <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-200 text-center">
@@ -106,7 +102,7 @@ function ServiceCard({ service }: { service: typeof services[number] }) {
         {/* Hover gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-3xl" />
       </div>
-  </div>
+    </div>
   );
 }
 
@@ -158,7 +154,7 @@ export function Services() {
       {/* Black backdrop and blur over background image */}
       <div className="absolute inset-0 z-0">
         {/* Black overlay for contrast */}
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-[5px]" />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
         {/* Glass reflection effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
         {/* Ambient light effects */}
