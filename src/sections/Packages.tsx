@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+// Removed Framer Motion imports
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -50,18 +49,13 @@ const packages = [
 ];
 
 export function Packages() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  // Removed useInView, always show content
 
   return (
     <section id="packages" className="py-20 md:py-32 relative overflow-hidden">
       <div className="container px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-4 mb-16"
+        <div
+          className="text-center space-y-4 mb-16 transition-all duration-700 ease-out opacity-100 translate-y-0"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             Choose Your Plan
@@ -69,16 +63,13 @@ export function Packages() {
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Flexible packages designed for every need and budget
           </p>
-        </motion.div>
+  </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {packages.map((pkg, index) => (
-            <motion.div
+          {packages.map((pkg) => (
+            <div
               key={pkg.name}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={pkg.popular ? "md:scale-105" : ""}
+              className={`transition-all duration-700 ease-out opacity-100 translate-y-0 ${pkg.popular ? "md:scale-105" : ""}`}
             >
               <Card className={`h-full relative overflow-hidden backdrop-blur-sm transition-all duration-300 hover:shadow-glow ${
                 pkg.popular 
@@ -123,7 +114,7 @@ export function Packages() {
                   </Button>
                 </CardFooter>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

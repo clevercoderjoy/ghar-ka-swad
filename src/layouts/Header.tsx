@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// Removed Framer Motion imports
 import Image from "next/image";
 import logo from "public/assets/logo.svg";
 import { MapPin, Menu, X } from "lucide-react";
@@ -72,14 +72,8 @@ export function Header() {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? ""
-          : "bg-transparent"
-          }`}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "" : "bg-transparent"}`}
       >
         {/* Liquid Glass Background - Only when scrolled */}
         {scrolled && (
@@ -98,9 +92,8 @@ export function Header() {
         <div className="container px-4 relative z-10">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo - Left */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-1 cursor-pointer"
+            <div
+              className="flex items-center gap-1 cursor-pointer transition-transform duration-200 hover:scale-105"
               onClick={() => scrollToSection("#home")}
             >
                 <Image
@@ -118,7 +111,7 @@ export function Header() {
                 <h1 className="text-lg font-bold leading-tight whitespace-nowrap">घर का स्वाद</h1>
                 <p className="text-xs text-foreground/90 whitespace-nowrap">Home Cooked Meals</p>
               </div>
-            </motion.div>
+            </div>
 
             {/* Navigation Menu - Center (Desktop Only) */}
             <nav className="hidden lg:flex items-center gap-2.5">
@@ -128,18 +121,15 @@ export function Header() {
                 const isHome = item.label === "Home";
 
                 return (
-                  <motion.button
+                  <button
                     key={item.label}
-                    whileHover={{ scale: 1.05 }}
-                    viewport={{ once: true }}
-                    whileTap={{ scale: 0.95 }}
                     onClick={() => scrollToSection(item.href)}
                     className={`relative px-4 py-2 rounded-lg text-md font-medium transition-all duration-300 overflow-hidden ${isActive && !isHome
                       ? "text-white border border-white/20"
                       : isActive && isHome
                         ? "text-foreground border border-transparent"
                         : "text-foreground border border-transparent hover:border-primary hover:bg-primary/20 hover:text-foreground"
-                      }`}
+                      } hover:scale-105 active:scale-95`}
                   >
                     {/* Liquid Glass Background for Active Items (excluding Home) */}
                     {isActive && !isHome && (
@@ -167,7 +157,7 @@ export function Header() {
                     )}
 
                     <span className="relative z-10">{item.label}</span>
-                  </motion.button>
+                  </button>
                 );
               })}
             </nav>
@@ -217,11 +207,9 @@ export function Header() {
                 </SelectContent>
               </Select>
               {/* Hamburger Menu Button - Mobile/Tablet */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg border border-[#FC8019]/60 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300"
+                className="lg:hidden p-2 rounded-lg border border-[#FC8019]/60 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300 hover:scale-105 active:scale-95"
                 style={{
                   boxShadow: '0 4px 32px 0 rgba(31, 38, 135, 0.37)',
                   WebkitBackdropFilter: 'blur(8px)',
@@ -233,34 +221,26 @@ export function Header() {
                 ) : (
                   <Menu className="h-5 w-5 text-white/90" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }} />
                 )}
-              </motion.button>
+              </button>
             </div>
           </div>
         </div>
-      </motion.header>
+  </header>
 
       {/* Mobile Menu Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-              onClick={() => setMobileMenuOpen(false)}
-            />
+      {mobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 opacity-100"
+            onClick={() => setMobileMenuOpen(false)}
+          />
 
-            {/* Drawer */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="fixed top-0 right-0 h-full w-[280px] sm:w-[320px] z-50 lg:hidden"
-            >
+          {/* Drawer */}
+          <div
+            className="fixed top-0 right-0 h-full w-[280px] sm:w-[320px] z-50 lg:hidden transition-transform duration-400 transform translate-x-0"
+            style={{ right: 0 }}
+          >
               {/* Liquid Glass Background */}
               <div className="absolute inset-0 bg-white/10 dark:bg-white/5 backdrop-blur-xl border-l border-white/20 shadow-2xl"
                 style={{
@@ -281,14 +261,12 @@ export function Header() {
                 {/* Header */}
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-xl font-bold text-white/90">Menu</h2>
-                  <motion.button
-                    whileHover={{ scale: 1.1, rotate: 90 }}
-                    whileTap={{ scale: 0.9 }}
+                  <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all"
+                    className="p-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-200 hover:scale-110 active:scale-90"
                   >
                     <X className="h-5 w-5 text-white/90" />
-                  </motion.button>
+                  </button>
                 </div>
 
                 {/* Menu Items */}
@@ -299,20 +277,15 @@ export function Header() {
                     const isHome = item.label === "Home";
 
                     return (
-                      <motion.button
+                      <button
                         key={item.label}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
                         onClick={() => scrollToSection(item.href)}
                         className={`relative px-6 py-4 rounded-xl text-left font-medium transition-all duration-300 overflow-hidden ${isActive && !isHome
                             ? "text-white border border-white/30"
                             : isActive && isHome
                               ? "text-white/90 border border-white/20"
                               : "text-white/80 border border-white/10 hover:border-[#FC8019]/60 hover:bg-white/10"
-                          }`}
+                          } hover:scale-102 active:scale-98`}
                       >
                         {/* Liquid Glass Background for Active Items */}
                         {isActive && !isHome && (
@@ -346,15 +319,14 @@ export function Header() {
                         )}
 
                         <span className="relative z-10 text-base">{item.label}</span>
-                      </motion.button>
+                      </button>
                     );
                   })}
                 </nav>
               </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+            </div>
+        </>
+      )}
     </>
   );
 }

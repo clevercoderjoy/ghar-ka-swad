@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+// Removed Framer Motion imports
 import { UtensilsCrossed, Users, Clock, Heart } from "lucide-react";
 import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
@@ -48,7 +47,7 @@ function useCardTilt() {
 }
 
 // ServiceCard component for each card
-function ServiceCard({ service, index, isInView }: { service: typeof services[number]; index: number; isInView: boolean }) {
+function ServiceCard({ service }: { service: typeof services[number] }) {
   const {
     cardRef,
     transform,
@@ -59,12 +58,7 @@ function ServiceCard({ service, index, isInView }: { service: typeof services[nu
   } = useCardTilt();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 64 }}
-      transition={{ duration: 0.01, delay: 0, ease: "easeInOut" }}
-      className="group"
-    >
+    <div className="group transition-all duration-700 ease-out opacity-100 translate-y-0">
       {/* Liquid Glass Card */}
       <div
         ref={cardRef}
@@ -89,14 +83,12 @@ function ServiceCard({ service, index, isInView }: { service: typeof services[nu
         {/* Content */}
         <div className="relative z-10 space-y-4 sm:space-y-5" style={{ transform: "translateZ(40px)" }}>
           {/* Icon Container - perfectly centered */}
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.09, ease: "easeOut" }}
-            className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-white/30 flex items-center justify-center mx-auto my-0 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-100"
+          <div
+            className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-white/30 flex items-center justify-center mx-auto my-0 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-100 hover:scale-110"
             style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
           >
             <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary group-hover:text-accent transition-colors duration-200 mx-auto my-0" />
-          </motion.div>
+          </div>
           {/* Title */}
           <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-200 text-center">
             {service.title}
@@ -109,7 +101,7 @@ function ServiceCard({ service, index, isInView }: { service: typeof services[nu
         {/* Hover gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-3xl" />
       </div>
-    </motion.div>
+  </div>
   );
 }
 
@@ -137,8 +129,7 @@ const services = [
 ];
 
 export function Services() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  // Removed useInView, always show content
 
   return (
     <section
@@ -166,13 +157,8 @@ export function Services() {
       </div>
 
       <div className="container px-4 relative z-10">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          viewport={{ once: true }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16"
+        <div
+          className="text-center space-y-3 sm:space-y-4 mb-12 sm:mb-16 transition-all duration-700 ease-out opacity-100 translate-y-0"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
             Our Services
@@ -180,11 +166,11 @@ export function Services() {
           <p className="text-base sm:text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto px-4">
             From daily tiffins to special events, we've got you all covered
           </p>
-        </motion.div>
+  </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} isInView={isInView} />
+          {services.map((service) => (
+            <ServiceCard key={service.title} service={service} />
           ))}
         </div>
       </div>

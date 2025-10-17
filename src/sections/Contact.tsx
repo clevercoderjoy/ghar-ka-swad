@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+// Removed Framer Motion imports
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -35,18 +34,13 @@ const contactInfo = [
 ];
 
 export function Contact() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  // Removed useInView, always show content
 
   return (
     <section id="contact" className="py-20 md:py-32 relative overflow-hidden bg-secondary/30">
       <div className="container px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-4 mb-16"
+        <div
+          className="text-center space-y-4 mb-16 transition-all duration-700 ease-out opacity-100 translate-y-0"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             Get In Touch
@@ -54,17 +48,15 @@ export function Contact() {
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to experience authentic home-cooked meals? Contact us today!
           </p>
-        </motion.div>
+  </div>
 
         <div className="max-w-5xl mx-auto space-y-12">
           {/* Contact Info Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactInfo.map((info, index) => (
-              <motion.div
+            {contactInfo.map((info) => (
+              <div
                 key={info.title}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="transition-all duration-700 ease-out opacity-100 translate-y-0"
               >
                 <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-glow group">
                   <CardContent className="p-6 text-center space-y-4">
@@ -88,15 +80,13 @@ export function Contact() {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
 
           {/* CTA Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+          <div
+            className="transition-all duration-700 ease-out opacity-100 translate-y-0"
           >
             <Card className="bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 backdrop-blur-sm shadow-glow">
               <CardContent className="p-8 md:p-12 text-center space-y-6">
@@ -128,7 +118,7 @@ export function Contact() {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

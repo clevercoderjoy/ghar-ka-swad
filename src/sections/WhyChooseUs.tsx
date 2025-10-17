@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+// Removed Framer Motion imports
 import { useRef, useState, useCallback } from "react";
 import { Check } from "lucide-react";
 import Image from "next/image";
@@ -57,7 +56,7 @@ function useCardTilt() {
 }
 
 // BenefitCard component with liquid glass effect
-function BenefitCard({ benefit, index, isInView }) {
+function BenefitCard({ benefit }) {
   const {
     cardRef,
     transform,
@@ -68,12 +67,7 @@ function BenefitCard({ benefit, index, isInView }) {
   } = useCardTilt();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group"
-    >
+    <div className="group transition-all duration-700 ease-out opacity-100 translate-x-0">
       <div
         ref={cardRef}
         tabIndex={0}
@@ -109,13 +103,12 @@ function BenefitCard({ benefit, index, isInView }) {
         {/* Hover gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-2xl" />
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export function WhyChooseUs() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  // Removed useInView, always show content
 
   // Card tilt for the visual container
   const {
@@ -155,13 +148,8 @@ export function WhyChooseUs() {
       <div className="container px-4 relative z-10">
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-16 items-center justify-between">
           {/* Content */}
-          <motion.div
-            ref={ref}
-            viewport={{ once: true, amount: 0.2 }}
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
+          <div
+            className="space-y-8 transition-all duration-700 ease-out opacity-100 translate-x-0"
           >
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
@@ -183,17 +171,14 @@ export function WhyChooseUs() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {benefits.map((benefit, index) => (
-                <BenefitCard key={benefit} benefit={benefit} index={index} isInView={isInView} />
+              {benefits.map((benefit) => (
+                <BenefitCard key={benefit} benefit={benefit} />
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative group mb-8 lg:mb-0"
+          <div
+            className="relative group mb-8 lg:mb-0 transition-all duration-700 ease-out opacity-100 scale-100"
           >
             <div
               ref={visualCardRef}
@@ -251,7 +236,7 @@ export function WhyChooseUs() {
               {/* Hover gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-3xl" />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
