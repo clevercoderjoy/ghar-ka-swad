@@ -16,7 +16,7 @@ function useCardTilt() {
   const [transform, setTransform] = useState("");
   const cardRef = useRef(null);
 
-  const handleMouseMove = useCallback((e) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();
