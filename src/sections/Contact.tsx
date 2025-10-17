@@ -3,7 +3,7 @@
 // Removed Framer Motion imports
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { CardContent } from "@/components/ui/card";
 import { Phone, Mail, Headphones, Clock } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useRef, useState, useCallback } from "react";

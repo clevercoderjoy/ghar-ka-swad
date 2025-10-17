@@ -14,7 +14,7 @@ export function Footer() {
   };
 
   return (
-  <footer className="relative overflow-hidden bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-2xl min-h-[175px]">
+    <footer className="relative overflow-hidden bg-white/10 dark:bg-white/5 backdrop-blur-xl shadow-2xl min-h-[175px]">
       {/* Blurred background image */}
       <div className="absolute inset-0 w-full h-full z-0 select-none pointer-events-none">
         <Image
@@ -30,9 +30,9 @@ export function Footer() {
         <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/10 dark:via-transparent dark:to-transparent" />
         <div className="absolute -inset-1 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 blur-xl opacity-30 animate-pulse" />
       </div>
-  <div className="container px-4 py-24 relative z-10">
+      <div className="container px-4 py-24 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-1 cursor-pointer transition-transform duration-200 hover:scale-105" onClick={() => scrollToSection("#home")}> 
+          <div className="flex items-center gap-1 cursor-pointer transition-transform duration-200 hover:scale-105" onClick={() => scrollToSection("#home")}>
             <Image
               src={logo}
               alt="घर का स्वाद Logo"
