@@ -4,7 +4,9 @@ import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
 import heroFood from "public/assets/hero-food.jpg";
+import logo from "public/assets/logo.svg";
 import { Button } from "@/components/ui/button";
+
 import { Phone, CookingPot } from "lucide-react";
 
 // Card tilt animation hook (copied from Services)
@@ -117,16 +119,11 @@ export function Hero() {
               >
                 {/* Logo Image */}
                 <Image
-                  src="/assets/logo.jpg"
-                  alt="Ghar Ka Swaad Logo"
+                  src={logo}
+                  alt="logo"
                   fill
                   priority
                   quality={85}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAUABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFBgP/xAAjEAACAQQCAQUAAAAAAAAAAAABAgMABAURIRITIjFBUWFx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwQC/8QAHBEAAgICAwAAAAAAAAAAAAAAAAECAxEhEhMx/9oADAMBAAIRAxEAPwDO2cMF1lreG5RXQuwcEbAGzmvRc2dsljGsYhijQNy7Djkk7JP3WNwFut7mbaKeMSxjd1JGb0nqwO9VmqZWs8jZNDLLK9xAwV0k5JBHWBrnW7JZLRujglscnZZR27aGjRq8x/TZeQi/qf/Z"
-                  loading="eager"
-                  fetchPriority="high"
-                  sizes="(max-width: 640px) 160px, (max-width: 768px) 170px, (max-width: 1024px) 200px, 220px"
                   className="rounded-full object-cover"
                 />
               </div>

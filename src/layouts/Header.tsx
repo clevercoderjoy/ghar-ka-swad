@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import logo from "public/assets/logo.jpg";
+import logo from "public/assets/logo.svg";
 import { MapPin, Menu, X } from "lucide-react";
 import {
   Select,
@@ -113,7 +113,6 @@ export function Header() {
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
                   }}
                   priority
-                  placeholder="blur"
                 />
               <div className="block">
                 <h1 className="text-lg font-bold leading-tight whitespace-nowrap">घर का स्वाद</h1>

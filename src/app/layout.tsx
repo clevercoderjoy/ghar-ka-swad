@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
+
+import logo from "public/assets/logo.svg";
 import './globals.css'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
@@ -17,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <link rel="preload" as="image" href="/assets/logo.jpg" />
+  <link rel="preload" as="image" href={logo.src} />
       </head>
       <body className={montserrat.className}>
         {children}
