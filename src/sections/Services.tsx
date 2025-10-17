@@ -11,9 +11,9 @@ import img2 from "public/assets/img2.jpg";
  */
 function useCardTilt() {
   const [transform, setTransform] = useState("");
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = useCallback((e) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
     if (!card) return;
 

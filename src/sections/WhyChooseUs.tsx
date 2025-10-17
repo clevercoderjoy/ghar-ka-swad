@@ -22,9 +22,9 @@ const benefits = [
  */
 function useCardTilt() {
   const [transform, setTransform] = useState("");
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = useCallback((e) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
     if (!card) return;
 
@@ -61,7 +61,7 @@ function useCardTilt() {
 /**
  * Card for displaying a single benefit
  */
-function BenefitCard({ benefit }) {
+function BenefitCard({ benefit }: { benefit: string }) {
   const {
     cardRef,
     transform,
