@@ -113,7 +113,7 @@ function ContactCard({ info }: { info: typeof contactInfo[number] }) {
             <info.icon className="w-6 h-6 text-primary transition-transform duration-200 group-hover:scale-110" />
           </div>
           <div className="space-y-2">
-            <h3 className="font-semibold text-sm text-muted-foreground">
+            <h3 className="font-semibold text-sm text-foreground/90">
               {info.title}
             </h3>
             {info.action ? (
